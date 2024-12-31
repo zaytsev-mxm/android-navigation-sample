@@ -36,6 +36,7 @@ fun App() {
                 onNavigateToThirdScreen = { navController.navigate(Screen.ThirdScreen.route) }
             )
         }
+
         composable(Screen.ThirdScreen.route) {
             ThirdScreen(
                 onNavigateToFirstScreen = { navController.navigate(Screen.FirstScreen.route) }
