@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import dev.maxiscoding.navigationsample.ui.theme.NavigationSampleTheme
 
 @Composable
-fun SecondScreen(onNavigateToFirstScreen: () -> Unit, onNavigateToThirdScreen: () -> Unit) {
+fun SecondScreen(name: String, onNavigateToFirstScreen: () -> Unit, onNavigateToThirdScreen: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -26,7 +26,7 @@ fun SecondScreen(onNavigateToFirstScreen: () -> Unit, onNavigateToThirdScreen: (
     ) {
         Text(text = "This is the Second Screen")
         Spacer(modifier = Modifier.height(24.dp))
-        Text(text = "Welcome")
+        Text(text = "Welcome, $name!")
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick = { onNavigateToFirstScreen() }) {
             Text(text = "Go to the First Screen")
@@ -42,6 +42,6 @@ fun SecondScreen(onNavigateToFirstScreen: () -> Unit, onNavigateToThirdScreen: (
 @Composable
 fun SecondScreenPreview() {
     NavigationSampleTheme {
-        SecondScreen({}, {})
+        SecondScreen("test", {}, {})
     }
 }

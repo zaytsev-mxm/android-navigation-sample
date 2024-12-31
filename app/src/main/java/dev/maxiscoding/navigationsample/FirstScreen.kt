@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import dev.maxiscoding.navigationsample.ui.theme.NavigationSampleTheme
 
 @Composable
-fun FirstScreen(onNavigateToSecondScreen: () -> Unit) {
+fun FirstScreen(onNavigateToSecondScreen: (String) -> Unit) {
     var name by remember { mutableStateOf("") }
 
     Column(
@@ -34,12 +34,12 @@ fun FirstScreen(onNavigateToSecondScreen: () -> Unit) {
         Text(text = "This is the First Screen")
         Spacer(modifier = Modifier.height(24.dp))
         OutlinedTextField(
-            value = "",
+            value = name,
             label = { Text("Name") },
             onValueChange = { name = it }
         )
         Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = { onNavigateToSecondScreen() }) {
+        Button(onClick = { onNavigateToSecondScreen(name) }) {
             Text(text = "Go to the Second Screen")
         }
     }
